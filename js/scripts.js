@@ -39,7 +39,7 @@ let prepareScrollmagic = () => {
 	});
 
 	// get all slides
-	let slides = document.querySelectorAll(".snapContainer > .wrapper");
+	let slides = document.querySelectorAll(".snapContainer > section");
 
 	// create scene for every slide
 	for (let i=0; i<slides.length; i++) {
