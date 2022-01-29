@@ -10,29 +10,79 @@ html, body {
 	color: white;
 	background-color: @darkBlue;
 
+	img {
+		max-width: 100%;
+	}
+
 	.snapContainer {
 		section {
 			height: 100vh;
 			display: flex;
 			justify-content: center;
-			align-items: center;
+			// align-items: center;
 
 			&.mainVidWrapper {
 				video {
 					max-width: 100%;
 				}
 			}
+
 			&.a {
 				background: @darkBlue;
 				background: linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(2,0,36,1) 80%);
 			}
+
 			&.b {
 				background: rgb(80, 76, 148);
 				background: linear-gradient(0deg, rgb(80, 76, 148) 0%, rgb(9, 9, 121) 80%);
 			}
+
 			&.c {
 				background: rgb(120,120,175);
 				background: linear-gradient(0deg, rgba(120,120,175,1) 0%, rgba(80,76,148,1) 80%);
+			}
+
+			&.d {
+				background: rgb(2,0,36);
+				background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(120,120,175,1) 80%);
+			}
+
+			.imgContainer {
+				max-width: 2000px;
+				padding: 20px;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr 1fr;
+				gap: 20px 20px;
+				grid-template-areas:
+					". imgRight"
+					"imgLeft imgRight"
+					"imgLeft imgRight"
+					"imgLeft .";
+
+				.imgLeft { grid-area: imgLeft; }
+				.imgRight { grid-area: imgRight; }
+
+				img {
+					object-fit: cover;
+					// @imgPadding: 15px;
+					// &:first-child {
+					// 	padding: @imgPadding calc(@imgPadding/2) @imgPadding @imgPadding;
+					// }
+					// &:last-child {
+					// 	padding: @imgPadding @imgPadding @imgPadding calc(@imgPadding/2);
+					// }
+				}
+			}
+
+			&.b, &.d {
+				.imgContainer {
+					grid-template-areas:
+						"imgLeft ."
+						"imgLeft imgRight"
+						"imgLeft imgRight"
+						". imgRight";
+				}
 			}
 		}
 	}
