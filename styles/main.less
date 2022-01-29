@@ -4,7 +4,6 @@
 html, body {
 	margin: 0;
 	padding: 0;
-	// overflow-x: hidden;
 	min-height: 100vh;
 	width: 100%;
 	color: white;
@@ -19,7 +18,6 @@ html, body {
 			height: 100vh;
 			display: flex;
 			justify-content: center;
-			// align-items: center;
 
 			&.mainVidWrapper {
 				video {
@@ -47,6 +45,16 @@ html, body {
 				background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(120,120,175,1) 80%);
 			}
 
+			&.e {
+				h2 {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					font-size: 120px;
+				}
+			}
+
 			.imgContainer {
 				max-width: 2000px;
 				padding: 20px;
@@ -65,13 +73,6 @@ html, body {
 
 				img {
 					object-fit: cover;
-					// @imgPadding: 15px;
-					// &:first-child {
-					// 	padding: @imgPadding calc(@imgPadding/2) @imgPadding @imgPadding;
-					// }
-					// &:last-child {
-					// 	padding: @imgPadding @imgPadding @imgPadding calc(@imgPadding/2);
-					// }
 				}
 			}
 
