@@ -32,7 +32,7 @@ let prepareScrollmagic = () => {
 	let controller = new ScrollMagic.Controller({
 		globalSceneOptions: {
 			triggerHook: 'onLeave',
-			duration: "100%" // this works just fine with duration 0 as well
+			duration: "200%" // this works just fine with duration 0 as well
 			// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
 			// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
 		}
@@ -46,6 +46,7 @@ let prepareScrollmagic = () => {
 		new ScrollMagic.Scene({
 				triggerElement: slides[i]
 			})
+			.setClassToggle(slides[i], "animTrigger")
 			.setPin(slides[i], {pushFollowers: false})
 			// .addIndicators() // add indicators (requires plugin)
 			.addTo(controller);

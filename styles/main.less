@@ -8,6 +8,7 @@ html, body {
 	width: 100%;
 	color: white;
 	background-color: @darkBlue;
+	overflow-x: hidden;
 
 	img {
 		max-width: 100%;
@@ -18,6 +19,7 @@ html, body {
 			height: 100vh;
 			display: flex;
 			justify-content: center;
+			margin-bottom: 400px;
 
 			&.mainVidWrapper {
 				video {
@@ -28,21 +30,110 @@ html, body {
 			&.a {
 				background: @darkBlue;
 				background: linear-gradient(0deg, rgba(9,9,121,1) 0%, rgba(2,0,36,1) 80%);
+				.imgLeft img {
+					transform: translateX(-60%);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				.imgRight img {
+					filter: blur(25px);
+					opacity: 0;
+					transition: filter 0.7s, opacity 0.4s;	
+				}
+				&.animTrigger {
+					.imgRight img {
+						filter: blur(0px);
+						opacity: 1;
+						transition: filter 0.4s, opacity 0.4s;
+					}
+					.imgLeft img {
+						transform: translateX(0%);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+				}
 			}
+
 
 			&.b {
 				background: rgb(80, 76, 148);
 				background: linear-gradient(0deg, rgb(80, 76, 148) 0%, rgb(9, 9, 121) 80%);
+				.imgLeft img {
+					transform: translateY(60%);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				.imgRight img {
+					transform: translateY(-60%);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				&.animTrigger {
+					.imgRight img {
+						transform: translateY(0%);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+					.imgLeft img {
+						transform: translateY(0%);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+				}
 			}
 
 			&.c {
 				background: rgb(120,120,175);
 				background: linear-gradient(0deg, rgba(120,120,175,1) 0%, rgba(80,76,148,1) 80%);
+				.imgLeft img {
+					transform: translateX(60%);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				.imgRight img {
+					transform: scale(0.1);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				&.animTrigger {
+					.imgRight img {
+						transform: scale(1);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+					.imgLeft img {
+						transform: translateX(0%);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+				}
 			}
 
 			&.d {
 				background: rgb(2,0,36);
 				background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(120,120,175,1) 80%);
+				.imgLeft img {
+					transform: translateX(-60%);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				.imgRight img {
+					transform: translateX(60%);
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				&.animTrigger {
+					.imgRight img {
+						transform: translateX(0%);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+					.imgLeft img {
+						transform: translateX(0%);
+						opacity: 1;
+						transition: transform 0.7s, opacity 0.4s;
+					}
+				}
 			}
 
 			&.e {
@@ -50,8 +141,15 @@ html, body {
 					position: absolute;
 					top: 50%;
 					left: 50%;
-					transform: translate(-50%, -50%);
+					transform: translate(-50%, -50%) scale(0.1);
 					font-size: 120px;
+					opacity: 0;
+					transition: transform 0.7s, opacity 0.4s;
+				}
+				&.animTrigger h2 {
+					opacity: 1;
+					transform: translate(-50%, -50%) scale(1);
+					transition: transform 0.7s, opacity 0.4s;
 				}
 			}
 
@@ -75,16 +173,18 @@ html, body {
 					object-fit: cover;
 				}
 			}
-
+			
 			&.b, &.d {
 				.imgContainer {
 					grid-template-areas:
-						"imgLeft ."
-						"imgLeft imgRight"
-						"imgLeft imgRight"
-						". imgRight";
+					"imgLeft ."
+					"imgLeft imgRight"
+					"imgLeft imgRight"
+					". imgRight";
 				}
 			}
+			
+			
 		}
 	}
 }
