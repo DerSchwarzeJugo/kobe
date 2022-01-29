@@ -1,5 +1,10 @@
 @darkBlue: #020024;
 
+@keyframes introClose {
+	90% { opacity: 0; }
+	100% { z-index: 0; }
+}
+
 
 html, body {
 	margin: 0;
@@ -15,6 +20,24 @@ html, body {
 	}
 
 	.snapContainer {
+		.intro { 
+			background-color: @darkBlue;
+			position: fixed;
+			opacity: 1;
+			z-index: 5;
+			height: 100vh;
+			width: 100%;
+			text-align: center;
+			animation: introClose 0.7s 0.8s forwards;
+			img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				max-height: 100vh;
+			}
+		}
+
 		section {
 			height: 100vh;
 			display: flex;
